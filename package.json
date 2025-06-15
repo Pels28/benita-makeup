@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@heroui/react": "^2.7.10",
-    "@studio-freight/lenis": "^1.0.42",
     "@studio-freight/react-lenis": "^0.0.47",
     "aos": "^2.3.4",
     "formik": "^2.4.6",
