@@ -24,7 +24,7 @@ const HomeSection = () => {
       </p>
     </div>
     <div className="img">
-      <ParallaxImage alt="" src="/images/lashes-black.jpg" />
+      <ParallaxImage alt="" src="/images/lashes-black.jpg"  />
     </div>
   </section>
 

@@ -1,5 +1,7 @@
 "use client";
 
+import ScrollRestoration from "@/components/ScrollRestoration";
+import { LenisProvider } from "@/context/LenisContext";
 import { HeroUIProvider } from "@heroui/react";
 import { ReactElement, ReactNode, Suspense } from "react";
 
@@ -10,7 +12,10 @@ interface ProviderProps {
 const Provider = ({ children }: ProviderProps) => {
   return (
     <Suspense fallback={null}>
+      <LenisProvider>
+        <ScrollRestoration/>
       <HeroUIProvider>{children}</HeroUIProvider>
+      </LenisProvider>
     </Suspense>
   );
 };

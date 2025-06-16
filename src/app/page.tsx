@@ -1,7 +1,7 @@
 // app/page.js
 "use client";
 
-import { ReactLenis } from "@studio-freight/react-lenis";
+// import { ReactLenis } from "@studio-freight/react-lenis";
 
 import { BsFacebook } from "react-icons/bs";
 import { TbPoint, TbPointFilled } from "react-icons/tb";
@@ -123,7 +123,7 @@ const Home = () => {
 
   return (
     <>
-      <ReactLenis root>
+      {/* <ReactLenis root> */}
         {/* Left Social Media Bar (Desktop) */}
 
         <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col gap-4">
@@ -202,7 +202,7 @@ const Home = () => {
           {/* Contact Section */}
           <Contact />
         </div>
-      </ReactLenis>
+      {/* </ReactLenis> */}
     </>
   );
 };

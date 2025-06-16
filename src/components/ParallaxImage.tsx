@@ -1,8 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useLenis } from "@studio-freight/react-lenis";
+import { useLenis } from '@/context/LenisContext';
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+
+// Define Lenis type with on/off methods
+type LenisType = {
+  on: (event: string, handler: (...args: any[]) => void) => void;
+  off: (event: string, handler: (...args: any[]) => void) => void;
+  scroll: number;
+} | null;
 
 interface ParallaxImageProps {
   alt: string;
@@ -14,24 +22,40 @@ const ParallaxImage = ({ src, alt }: ParallaxImageProps) => {
   const animationRef = useRef<number>(0);
   const targetY = useRef(0);
   const currentY = useRef(0);
-
-  useLenis(({  }) => {
-    if (!containerRef.current) return;
-    
-    const rect = containerRef.current.getBoundingClientRect();
   
+  // Cast to our custom LenisType
+  const lenis = useLenis() as LenisType;
+
+  useEffect(() => {
+    if (!lenis) return;
     
-    // Only apply parallax when section is above viewport
-    if (rect.top > 0) {
-      targetY.current = 0;
-      return;
-    }
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      
+      const rect = containerRef.current.getBoundingClientRect();
+      
+      // Only apply parallax when section is above viewport
+      if (rect.top > 0) {
+        targetY.current = 0;
+        return;
+      }
+      
+      // Calculate how far above the viewport we are
+      const distanceAbove = Math.min(0, rect.top);
+      // Apply parallax effect
+      targetY.current = distanceAbove * 0.15;
+    };
+
+    // Add scroll listener
+    lenis.on('scroll', handleScroll);
     
-    // Calculate how far above the viewport we are
-    const distanceAbove = Math.min(0, rect.top);
-    // Apply parallax effect (reduced intensity)
-    targetY.current = distanceAbove * 0.15; // Reduced from 0.2 to make it more subtle
-  });
+    // Initial position calculation
+    handleScroll();
+    
+    return () => {
+      lenis.off('scroll', handleScroll);
+    };
+  }, [lenis]);
 
   useEffect(() => {
     const animate = () => {

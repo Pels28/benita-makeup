@@ -16,11 +16,14 @@ body {
   margin: 0;
   padding: 0;
   max-width: 100%;
+  overscroll-behavior: none;
 }
 
 html {
   max-width: 100%;
   overflow-x: hidden;
+  scroll-behavior: auto !important;
+
 }
 
 section.parallax-section {
@@ -42,6 +45,7 @@ html.lenis {
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
+
 
 /* Section styles */
 /* section {

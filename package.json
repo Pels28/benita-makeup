@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "npm install --force && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@heroui/react": "^2.7.10",
-    "@studio-freight/react-lenis": "^0.0.47",
+    "@studio-freight/lenis": "^1.0.42",
     "aos": "^2.3.4",
     "formik": "^2.4.6",
     "framer-motion": "^12.17.3",
