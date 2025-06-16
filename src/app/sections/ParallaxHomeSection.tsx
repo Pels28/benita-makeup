@@ -1,20 +1,36 @@
+"use client"
+import Image from "next/image";
+import HeroImg from "@public/images/lashes-black.jpg";
 import FacialsImg from "@public/images/facials.jpg";
 import MakeupImg from "@public/images/brown-girl.jpg";
 import HairStyleImg from "@public/images/hairstyle.jpg";
 import NailsImg from "@public/images/nails.jpg";
-import ParallaxImage from "@/components/ParallaxImage";
 import { Divider } from "@heroui/react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
-import Image from "next/image";
-const HomeSection = () => {
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const ParallaxHomeSection = () => {
+    const sectionRef = useRef(null)
+    const {scrollYProgress} = useScroll({target: sectionRef, offset: ["start end", "end start"]})
+    const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"])
+
   return (
     <>
-      <section
-        className="hero parallax-section min-h-[70vh] md:min-h-screen flex items-center md:items-start"
-        id="home"
-      >
-        <div
-          className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left w-full px-4 mt-0 md:mt-44 md:ml-44"
+    <section ref={sectionRef} className="relative overflow-hidden min-h-[70vh] md:min-h-screen flex items-center md:items-start">
+      <motion.div className="absolute w-full h-[130%]" style={{top: y}}>
+        {/* <div className="absolute inset-0 bg-black/30 z-10" /> */}
+        <Image
+          src={HeroImg}
+          alt="home-img"
+          fill
+          priority
+          className="object-cover"
+        />
+      </motion.div>
+
+      <div
+          className="flex flex-col items-center md:items-start text-center md:text-left w-full px-4 mt-0 md:mt-44 md:ml-44"
           data-aos="fade-right"
           data-aos-delay="100"
         >
@@ -25,13 +41,9 @@ const HomeSection = () => {
             To a Full Beauty and Co-Experience
           </p>
         </div>
-        <div className="img">
-          <ParallaxImage alt="" src="/images/lashes-black.jpg" />
-        </div>
-      </section>
-      {/* Service Grid Section */}
-      <div
-        className="mx-4 md:mx-10 mb-20 -mt-20 relative"
+    </section>
+    <div
+        className="mx-4 md:mx-10 mb-20 -mt-20"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -103,4 +115,4 @@ const HomeSection = () => {
   );
 };
 
-export default HomeSection;
+export default ParallaxHomeSection;

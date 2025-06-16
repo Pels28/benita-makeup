@@ -11,11 +11,11 @@ import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import HomeSection from "./sections/HomeSection";
 import About from "./sections/About";
 import Services from "./sections/Services";
 import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
+import ParallaxHomeSection from "./sections/ParallaxHomeSection";
 
 const Home = () => {
   useEffect(() => {
@@ -188,9 +188,10 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="app pb-16 md:pb-0">
+        <div className="app pb-0 ">
           {/* Hero Section */}
-          <HomeSection />
+         
+          <ParallaxHomeSection/>
 
           {/* About Section */}
           <About />
@@ -201,6 +202,8 @@ const Home = () => {
 
           {/* Contact Section */}
           <Contact />
+
+     
         </div>
       {/* </ReactLenis> */}
     </>
