@@ -22,7 +22,7 @@ const Footer = () => {
           </Button>
         </div>
         <p className="text-sm mt-5 md:text-base">
-          © 2025 by Benita Makeup. Powered and secured by Pels
+          © 2025 by Benita Makeup. Powered and secured by BPX Innovations
         </p>
       </div>
     </footer>
