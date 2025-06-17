@@ -8,9 +8,7 @@ const Location = () => {
       <div className="text-7xl font-alexBrush">Directions</div>
 
       <div className="space-y-2">
-        <div className="font-cormorant">
-          500 Terry France street, San Francisco, CA9418
-        </div>
+        <div className="font-cormorant">Address: GT-014-1293,Tema</div>
         <div className="font-playfairDisplay flex">
           <address>info@email.com</address>&nbsp;/ Tel:
           <span>0549572211</span>
@@ -25,7 +23,7 @@ const Location = () => {
 
       <iframe
         className="w-full h-[500px]"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.9597758880654!2d-0.15109659999999998!3d5.6498601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf83004af93d7b%3A0x9d8b0359baf3304a!2sKOAN%20PETROLEUM%20LTD!5e0!3m2!1sen!2sgh!4v1713970600045!5m2!1sen!2sgh"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1270525.904221698!2d-0.1510966!3d5.6498601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzknMTQuOCJOIDDCsDA3JzQyLjEiRQ!5e0!3m2!1sen!2sgh!4v1713970600045!5m2!1sen!2sgh&q=GT-014-1293,Tema,Ghana"
         style={{ border: "0" }}
         allowFullScreen
         loading="lazy"

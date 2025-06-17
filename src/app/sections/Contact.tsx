@@ -10,16 +10,19 @@ import { FaArrowRight } from "react-icons/fa6";
 import * as Yup from "yup";
 
 const Contact = () => {
-  const sectionRef = useRef(null)
-  const {scrollYProgress} = useScroll({target: sectionRef, offset: ["start end", "end start"]})
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"])
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
   return (
     <section
       id="contact"
       className="relative min-h-[800px] md:min-h-[1080px] py-8 md:py-12 flex items-center justify-center"
     >
       {/* Video Background */}
-      <motion.div className="absolute inset-0 z-0" style={{top: y}}>
+      <motion.div className="absolute inset-0 z-0" style={{ top: y }}>
         <video
           autoPlay
           loop
@@ -48,7 +51,7 @@ const Contact = () => {
         </div>
         <div className="space-y-2" data-aos="fade-right" data-aos-delay="200">
           <div className="font-playfairDisplay text-sm md:text-base">
-            500 Terry France street, San Francisco, CA9418
+            Address: GT-014-1293, Tema
           </div>
           <div className="font-playfairDisplay text-sm md:text-base">
             info@email.com / Tel: 0549572211
